@@ -1,5 +1,12 @@
 import pygame
 from sys import exit
+import os
+
+Directory = "/Users/mootahir/Desktop/Programming/GitKraken Stuff/Gaming Suite"
+def DirectorySet(Dir):
+    os.chdir(Dir)
+    
+DirectorySet(Directory) # IF YOU ARE USING THIS PROGRAM, DELETE THIS LINE, I WAS JUST HAVING ISSUES WITH MY DIRECTORY.
 
 pygame.init()
 screen = pygame.display.set_mode((800, 400)) # Parameter is a tuple with (width, height)
@@ -27,6 +34,8 @@ snail_rectangle = snail_surface.get_rect(midbottom = (900, 300))
 # PLAYER SURFACE/RECTANGLE STUFF
 player_surface = pygame.image.load('graphics/player/player_walk_1.png').convert_alpha()
 player_rectangle = player_surface.get_rect(midbottom = (80, 300))
+
+player_gravity = 0
 
 while True:     # Entire game will run in this loop; until game is done, the program will stay open
     for event in pygame.event.get():
@@ -69,6 +78,9 @@ while True:     # Entire game will run in this loop; until game is done, the pro
     
     # PLAYER SETTING
     screen.blit(player_surface, player_rectangle)
+    
+    player_gravity += 1
+    player_rectangle.y += player_gravity
     
     keys = pygame.key.get_pressed()
     # if keys[pygame.K_SPACE]:
