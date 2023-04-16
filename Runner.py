@@ -79,7 +79,7 @@ while True:     # Entire game will run in this loop; until game is done, the pro
     # PLAYER SETTING
     screen.blit(player_surface, player_rectangle)
     
-    player_gravity += 1
+    player_gravity += 0.3
     player_rectangle.y += player_gravity
     
     keys = pygame.key.get_pressed()
