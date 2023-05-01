@@ -112,7 +112,10 @@ while True:     # Entire game will run in this loop; until game is done, the pro
             score = 0
             
     else:
-        screen.fill("purple")
+        screen.fill("Black")
+        gameover_surface = test_font.render(f"Game Over! Jump to restart.", False, "White")
+        gameover_rectangle = gameover_surface.get_rect(center = (400, 200))
+        screen.blit(gameover_surface, gameover_rectangle)
 
     
     # draw all of the elements
